@@ -57,8 +57,12 @@ public class Exercise5 {
 			System.out.println(String.format(errorMessageFormat, stringToConvert, "decimal number"));
 			return;
 		}
-		String hexValue = Integer.toHexString(Integer.parseInt(stringToConvert));
+		String hexValue = toHexString(stringToConvert);
 		System.out.println(String.format(successMessageFormat, stringToConvert, (hexPrefix + hexValue)));
+	}
+	
+	private String toHexString(String stringToConvert) {
+		return Integer.toHexString(Integer.parseInt(stringToConvert));
 	}
 	
 	private void convertHexadecimal(String stringToConvert) {
@@ -67,7 +71,12 @@ public class Exercise5 {
 			System.out.println(String.format(errorMessageFormat, stringToConvert, "hexadecimal number"));
 			return;
 		} 
-		int intValue = Integer.parseInt(stringToConvert.substring(hexPrefix.length()), 16);
+		String intValue = toDecimalString(stringToConvert);
 		System.out.println(String.format(successMessageFormat, stringToConvert, intValue));
+	}
+	
+	private String toDecimalString(String stringToConvert) {
+		
+		return Integer.toString(Integer.parseInt(stringToConvert.substring(hexPrefix.length()), 16));
 	}
 }
